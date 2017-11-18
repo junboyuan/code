@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xzj.mybatis.mysql.dao.RecordManager">
+    <select id="selectAll" resultType="Record">
+        select * from `t_current_alarm`
+    </select>
+    <insert id="insertAlarm" parameterType="Record" keyProperty="csn">
+        INSERT INTO `t_current_alarm`(`csn`,`name`,`alarmid`,`occurutc`,`clearutc`,`clearuser`,`mename`,`medn`)
+                              VALUES (#{csn},#{alarmName},#{alarmId},#{occurUtc},#{clearUtc},#{ackUser},#{meName},#{medn})
+    </insert>
+    <delete id="delete" parameterType="int">
+        delete from t_current_alarm
+    </delete>
+</mapper>
